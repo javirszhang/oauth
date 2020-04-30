@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Javirs.Common" Version="2.8.30" />
+    <PackageReference Include="Winner.ConfigurationManager" Version="2.1.1" />
+    <PackageReference Include="Winner.SmsCenter.Client" Version="1.0.3" />
+    <PackageReference Include="Winner.User.Interface" Version="2.0.2" />
+    <PackageReference Include="Winner.User.Provider" Version="2.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.Interfaces\Winner.OAuth.DataAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.MySQL\Winner.OAuth.DataAccess.MySQL.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.Oracle\Winner.OAuth.DataAccess.Oracle.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.Entities\Winner.OAuth.Entities.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.Token\Winner.OAuth.Token.csproj" />
+  </ItemGroup>
+
+</Project>

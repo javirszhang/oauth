@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package token;
+
+service Token {
+   rpc Refresh (TokenRefreshRequestDTO) returns (TokenResponseDTO);
+   rpc Validate (TokenValidateRequestDTO) returns (TokenValidateResponseDTO);
+   rpc GetByCode (CodeExchangeTokenRequestDTO) returns (TokenResponseDTO);
+   rpc Decode (TokenDecodeRequestDTO) returns (TokenDecodeResponseDTO);
+   rpc Resources (TokenResourcesRequestDTO) returns (TokenResourceResponseDTO);
+}
+
+message TokenRefreshRequestDTO{
+    string appid=1;
+    string refresh_token=2;
+}
+message TokenResponseDTO{
+    string retCode=1;
+    string retMsg=2;
+    Result data=3;
+    message Result{
+        string token=1;
+        string openid=2;
+        int32 expires=3;
+        string refresh_token=4;
+        int32 refresh_expires=5;
+    }
+}
+message TokenValidateRequestDTO{
+    string token=3;
+}
+message TokenValidateResponseDTO{
+    string retCode=1;
+    string retMsg=2;
+}
+message CodeExchangeTokenRequestDTO{
+    string appid=1;
+    string secret=2;
+    string code=3;
+    string grant_type=4;
+}
+message TokenDecodeRequestDTO{
+    string appid=1;
+    string secret=2;
+    string token=3;
+}
+message TokenDecodeResponseDTO{
+    string retCode=1;
+    string retMsg=2;
+    Result data=3;
+    message Result{
+        int32 appid=1;
+        int32 userid=2;
+        string usercode=3;
+        string expire_time=4;
+    }
+}
+message TokenResourcesRequestDTO{
+    string token=1;
+}
+message TokenResourceResponseDTO{
+    string retCode=1;
+    string retMsg=2;
+    repeated Result array=3;
+    message Result{
+        string name=1;
+        string url=2;
+    }
+}

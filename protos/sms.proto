@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package sms;
+
+service Sms{
+	rpc Send (SmsSendRequestDTO) returns (SmsSendResponseDTO);
+}
+message SmsSendRequestDTO{
+	string MobileNo=1;
+	SmsValidateType SmsType=2;
+	enum SmsValidateType{
+		Register=0;
+		ResetLoginPassword=1;
+		ResetPaymentPassword=2;
+		BindMobileNo=3;
+		Login=4;
+	}
+}
+
+message SmsSendResponseDTO{
+	string retCode=1;
+	string retMsg=2;
+}

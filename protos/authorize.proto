@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package authorize;
+
+// The greeting service definition.
+service Authorization {
+  // Sends a greeting
+  rpc GrantByAccount (GrantByAccountRequestDTO) returns (GrantResponseDTO);
+  rpc GrantByToken (GrantByTokenRequestDTO) returns (GrantResponseDTO);
+}
+
+// The request message containing the user's name.
+message GrantByAccountRequestDTO {
+  string appid = 1;//应用id
+  string state = 2;//防跨站随机串
+  string scopes = 3;//授权作用域
+  string redirect_uri = 4;//跳转地址
+  string account = 5;//账号（手机号/账号/邮箱）
+  string password = 6;//密码
+  Client client=7;//用户登录设备号
+  bool grantAll=8;//授权所有权限
+  repeated CodeRight grants=9;  
+}
+
+// The response message containing the greetings.
+message GrantResponseDTO {
+    string retCode=1;
+    string retMsg=2;
+    Result data=3;
+    message Result{
+        string code = 1;//授权码
+    }
+}
+message GrantByTokenRequestDTO {
+   string appid=1;//应用id
+   string state=2;//防跨站随机串
+   string scopes=3;//授权作用域
+   string redirect_uri=4;//跳转地址
+   string token=5;//发放token
+   Client client=6;//用户登录设备号
+   bool grantAll=7;//授权所有权限
+   repeated CodeRight grants=8;   
+}
+message Client{
+   string deviceId=1;
+   string sessionId=2;
+   string version=3;
+   string system=4;
+   string ip=5;
+   int32 type=6;
+}
+ message CodeRight{
+   int32 Id=1;
+   int32 Type=2;
+ }

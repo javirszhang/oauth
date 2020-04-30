@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package inviteCode;
+
+service InviteCode{
+	rpc Decode (InviteCodeDecodeRequestDTO) returns (InviteCodeDecodeResponseDTO);
+	rpc GetInviteCode (GetInviteCodeRequestDTO) returns (GetInviteCodeResponseDTO);
+}
+
+message InviteCodeDecodeRequestDTO{
+	string code=1;
+}
+message InviteCodeDecodeResponseDTO{
+	bool exist=1;
+	string usercode=2;
+	string username=3;	
+}
+message GetInviteCodeRequestDTO{
+	string token=1;
+}
+message GetInviteCodeResponseDTO{
+	string code=1;
+}

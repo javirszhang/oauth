@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package register;
+
+service Register{
+	rpc UserRegister (UserRegisterRequestDTO) returns (UserRegisterResponseDTO);
+}
+
+message UserRegisterRequestDTO{
+	string appid=1;
+	string userCode=2;
+	string password=3;
+	string smsCode=4;
+	string refereeCode=5;
+	Client client=6;
+	message Client{
+	   string deviceId=1;
+       string sessionId=2;
+       string version=3;
+       string system=4;
+       string ip=5;
+       int32 type=6;
+	}
+}
+message UserRegisterResponseDTO{
+	string retCode=1;
+	string retMsg=2;
+	Result data=3;
+	message Result {
+		string userCode=1;
+		string token=2;
+		int32 expires=3;
+		string refreshToken=4;
+		int32 refreshExpires=5;
+		string openid=6;
+	}
+}

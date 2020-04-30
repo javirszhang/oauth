@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package login;
+
+service Login{
+	rpc LoginByAccount (LoginRequestDTO) returns (LoginResponseDTO);
+}
+message LoginRequestDTO{
+	string appid=1;
+	string usercode=2;
+	string password=3;
+	int32 loginType=4;
+	string scopes=5;
+	Client client=6;
+	message Client{
+       string deviceId=1;
+       string sessionId=2;
+       string version=3;
+       string system=4;
+       string ip=5;
+       int32 type=6;
+    }
+}
+message LoginResponseDTO{
+	string retCode=1;
+	string retMsg=2;
+	Result data=3;
+	message Result {
+		string token=1;
+		int32 expires=2;
+		string refresh_token=3;
+		int32 refresh_expires=4;
+		string openid=5;
+	}
+}

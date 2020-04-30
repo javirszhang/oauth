@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Winner.OAuth.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Winner.OAuth.Api.Controllers.ThirdpartyController.GetAuthorizationUrl(System.String,System.String,System.String)">
+            <summary>
+            获取第三方平台授权链接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.Appid">
+            <summary>
+            应用id
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.State">
+            <summary>
+            防跨站随机串
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.Scopes">
+            <summary>
+            授权作用域
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.RedirectUri">
+            <summary>
+            跳转地址
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.GrantAll">
+            <summary>
+            授权所有权限
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.Client">
+            <summary>
+            客户端信息
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.AuthorizeRequestBaseDTO.Privileges">
+            <summary>
+            授权权限列表
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.DeviceId">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.SessionId">
+            <summary>
+            会话ID
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.Version">
+            <summary>
+            客户端版本号
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.System">
+            <summary>
+            客户端系统
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.IP">
+            <summary>
+            客户端ip
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.ClientInfo.Type">
+            <summary>
+            客户端类型（1. 安卓, 2. 苹果, 3. 服务端, 4. 前端）
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.GrantByAccountRequestDTO.Account">
+            <summary>
+            账号（手机号/账号/邮箱）
+            </summary>
+        </member>
+        <member name="P:Winner.OAuth.Api.Models.GrantByAccountRequestDTO.Password">
+            <summary>
+            登陆密码（RSA加密）
+            </summary>
+        </member>
+    </members>
+</doc>

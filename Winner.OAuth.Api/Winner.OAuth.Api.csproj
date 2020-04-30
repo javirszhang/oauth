@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>G:\Jason\gitwork\Winner.OAuth\Winner.OAuth.Api\Winner.OAuth.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.Interfaces\Winner.OAuth.DataAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.MySQL\Winner.OAuth.DataAccess.MySQL.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.DataAccess.Oracle\Winner.OAuth.DataAccess.Oracle.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.Entities\Winner.OAuth.Entities.csproj" />
+    <ProjectReference Include="..\Winner.OAuth.Facade\Winner.OAuth.Facade.csproj" />
+  </ItemGroup>
+
+
+</Project>

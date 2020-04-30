@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "Winner.OAuth.GrpcService";
+
+package thirdParty;
+
+service ThirdParty{
+	rpc Login (ThirdPartyLoginRequestDTO) returns (ThirdPartyLoginResponseDTO);
+	rpc BindMobile (ThirdPartyBindMobileRequestDTO) returns (ThirdPartyLoginResponseDTO);
+}
+
+message ThirdPartyLoginRequestDTO{
+	string Appid=1;
+	string AuthCode=2;
+	string GrantType=3;
+	int32 PlatformId=4;
+}
+message ThirdPartyLoginResponseDTO{
+	string retCode=1;
+	string retMsg=2;
+	LoginResult Data=3;
+}
+
+message ThirdPartyBindMobileRequestDTO{
+	int32 PlatformId=1;
+	string AuthCode=2;
+	string GrantType=3;//openid or authcode
+	string MobileNo=4;
+	string ValidateCode=5;
+	string NickName=6;
+	string Avatar=7;
+	string RefereeCode=8;
+	string Appid=9;
+}
+message LoginResult{
+	string UserCode=1;
+	string Token=2;
+	int32 Expires=3;
+	string Refresh_Token=4;
+	int32 Refresh_Expires=5;
+	string Openid=6;
+}
